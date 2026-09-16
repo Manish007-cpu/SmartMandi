@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        SmartMandi Officer Dashboard
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="officer.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     HEADER
+===================================== -->
+
+<header class="officer-header">
+
+    <div>
+
+        <h1>
+            🌾 SmartMandi
+        </h1>
+
+        <p>
+            Procurement Center Management
+        </p>
+
+    </div>
+
+
+    <a href="index.html">
+        Farmer Portal
+    </a>
+
+</header>
+
+
+
+<!-- =====================================
+     MAIN
+===================================== -->
+
+<main class="dashboard">
+
+
+    <!-- CENTER SELECTOR -->
+
+    <section class="control-card">
+
+        <label>
+            Select Procurement Center
+        </label>
+
+        <select id="center">
+
+            <option value="">
+                All Centers
+            </option>
+
+            <option value="Ramanthapur Center">
+                Ramanthapur Center
+            </option>
+
+            <option value="Uppal Center">
+                Uppal Center
+            </option>
+
+            <option value="LB Nagar Center">
+                LB Nagar Center
+            </option>
+
+        </select>
+
+    </section>
+
+
+
+    <!-- =====================================
+         STATISTICS
+    ===================================== -->
+
+    <section class="stats">
+
+
+        <div class="stat-card">
+
+            <span>
+                👨‍🌾
+            </span>
+
+            <h2 id="total">
+                0
+            </h2>
+
+            <p>
+                Total Farmers
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                ⏳
+            </span>
+
+            <h2 id="waiting">
+                0
+            </h2>
+
+            <p>
+                Waiting
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                🚜
+            </span>
+
+            <h2 id="processing">
+                0
+            </h2>
+
+            <p>
+                Processing
+            </p>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <span>
+                ✅
+            </span>
+
+            <h2 id="completed">
+                0
+            </h2>
+
+            <p>
+                Completed
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================
+         QUEUE
+    ===================================== -->
+
+    <section
+    class="current-processing-card"
+    id="currentProcessingCard"
+>
+
+    <div class="processing-icon">
+        🚜
+    </div>
+
+    <div class="processing-info">
+
+        <p>
+            CURRENTLY PROCESSING
+        </p>
+
+        <h2 id="currentToken">
+            No Token
+        </h2>
+
+        <span id="currentFarmer">
+            No farmer is currently being processed.
+        </span>
+
+    </div>
+
+</section>
+    <section class="queue-section">
+
+        <div class="queue-title">
+
+            <div>
+
+                <h2>
+                    Live Farmer Queue
+                </h2>
+
+                <p>
+                    Updated automatically every 5 seconds
+                </p>
+
+            </div>
+
+            <span class="live">
+                ● LIVE
+            </span>
+
+        </div>
+
+
+        <div id="queue">
+
+            <p class="loading">
+                Loading farmers...
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+
+<script src="officer.js"></script>
+
+</body>
+
+</html>

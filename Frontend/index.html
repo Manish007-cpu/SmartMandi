@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SmartMandi</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     NAVBAR
+===================================== -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🌾 SmartMandi
+    </div>
+
+    <nav>
+
+        <a href="index.html">
+            Farmer
+        </a>
+
+        <a href="officer.html">
+            Officer
+        </a>
+
+        <button
+            id="languageButton"
+            onclick="toggleLanguage()"
+        >
+            తెలుగు
+        </button>
+
+    </nav>
+
+</header>
+
+
+
+<!-- =====================================
+     HERO
+===================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <p class="tag">
+            SMART PROCUREMENT SYSTEM
+        </p>
+
+        <h1
+            data-en="Sell Your Crop Smarter"
+            data-te="మీ పంటను తెలివిగా విక్రయించండి"
+        >
+            Sell Your Crop Smarter
+        </h1>
+
+        <p
+            data-en="Get your digital token and track your procurement queue in real time."
+            data-te="డిజిటల్ టోకెన్ పొందండి మరియు మీ ప్రొక్యూర్‌మెంట్ క్యూను రియల్ టైమ్‌లో ట్రాక్ చేయండి."
+        >
+            Get your digital token and track your
+            procurement queue in real time.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================
+     MAIN
+===================================== -->
+
+<main class="container">
+
+
+    <!-- REGISTRATION -->
+
+    <section class="card">
+
+        <h2>
+            🌾 Farmer Registration
+        </h2>
+
+        <p class="subtitle">
+            Register your crop to receive a digital token.
+        </p>
+
+
+        <form id="farmerForm">
+
+
+            <!-- NAME -->
+
+            <div class="form-group">
+
+                <label>
+                    Farmer Name
+                </label>
+
+                <input
+                    type="text"
+                    id="farmerName"
+                    placeholder="Enter your name"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- CROP -->
+
+            <div class="form-group">
+
+                <label>
+                    Crop
+                </label>
+
+                <select
+                    id="crop"
+                    required
+                >
+
+                    <option value="">
+                        Select crop
+                    </option>
+
+                    <option value="Rice">
+                        Rice
+                    </option>
+
+                    <option value="Wheat">
+                        Wheat
+                    </option>
+
+                    <option value="Cotton">
+                        Cotton
+                    </option>
+
+                    <option value="Maize">
+                        Maize
+                    </option>
+
+                    <option value="Turmeric">
+                        Turmeric
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- QUANTITY -->
+
+            <div class="form-group">
+
+                <label>
+                    Quantity (Quintals)
+                </label>
+
+                <input
+                    type="number"
+                    id="quantity"
+                    placeholder="Example: 20"
+                    min="1"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- CENTER -->
+
+            <div class="form-group">
+
+                <label>
+                    Procurement Center
+                </label>
+
+                <select
+                    id="center"
+                    required
+                >
+
+                    <option value="">
+                        Select center
+                    </option>
+
+                    <option value="Ramanthapur Center">
+                        Ramanthapur Center
+                    </option>
+
+                    <option value="Uppal Center">
+                        Uppal Center
+                    </option>
+
+                    <option value="LB Nagar Center">
+                        LB Nagar Center
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- SUBMIT -->
+
+            <button
+                type="submit"
+                class="primary-btn"
+            >
+                🎟️ Generate Token
+            </button>
+
+        </form>
+
+    </section>
+
+
+
+    <!-- =====================================
+         LIVE QUEUE
+    ===================================== -->
+
+   <section class="card queue-card">
+
+    <div class="section-header">
+        <div>
+            <h2>
+                📊 Live Procurement Queue
+            </h2>
+
+            <p class="subtitle">
+                Current status at your selected center.
+            </p>
+        </div>
+
+        <span class="live">
+            ● LIVE
+        </span>
+    </div>
+
+    <div class="queue-stats">
+
+        <div class="stat-box">
+            <span id="peopleAhead">0</span>
+
+            <small>
+                People Ahead
+            </small>
+        </div>
+
+        <div class="stat-box">
+            <span id="waitTime">0 min</span>
+
+            <small>
+                Estimated Wait
+            </small>
+        </div>
+
+        <div class="stat-box">
+            <span id="capacity">0</span>
+
+            <small>
+                Center Capacity
+            </small>
+        </div>
+
+    </div>
+    <div
+    class="current-token-box"
+    id="farmerCurrentToken"
+>
+
+    <span>
+        🚜 Currently Processing
+    </span>
+
+    <strong id="currentProcessingToken">
+        No Token
+    </strong>
+
+    <p id="currentProcessingFarmer">
+        No farmer is currently being processed.
+    </p>
+
+</div>
+
+    <!-- Smart Recommendation -->
+
+    <div
+        id="smartRecommendation"
+        class="recommendation"
+        style="display: none;"
+    >
+
+        <h3>
+            🧠 Smart Arrival Recommendation
+        </h3>
+
+        <p>
+            Recommended arrival time:
+        </p>
+
+        <strong id="arrivalTime">
+            --
+        </strong>
+
+        <p id="arrivalMessage">
+            --
+        </p>
+
+    </div>
+
+    <button
+        class="notification-btn"
+        onclick="sendNotification()"
+    >
+        🔔 Enable Notifications
+    </button>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        © 2026 SmartMandi | Smart Procurement for Farmers
+    </p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
